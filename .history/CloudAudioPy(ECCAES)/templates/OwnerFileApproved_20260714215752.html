@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+File Requests
+{% endblock %}
+
+
+{% block heading %}
+User File Requests
+{% endblock %}
+
+
+
+{% block sidebar %}
+
+<li>
+    <a href="/OwnerHome">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileUpload">
+        <i class="fa-solid fa-upload"></i>
+        Upload File
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileInfo">
+        <i class="fa-solid fa-folder"></i>
+        My Files
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileApproved">
+        <i class="fa-solid fa-user-check"></i>
+        Requests
+    </a>
+</li>
+
+<li>
+    <a href="/">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </a>
+</li>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<div class="table-box">
+
+<h2>
+Pending Access Requests
+</h2>
+
+<br>
+
+
+<table>
+
+<tr>
+
+<th>
+Request ID
+</th>
+
+<th>
+File ID
+</th>
+
+<th>
+Owner Name
+</th>
+
+<th>
+File Name
+</th>
+
+<th>
+User Name
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Action
+</th>
+
+</tr>
+
+
+
+{% for row in data %}
+
+<tr>
+
+<td>
+{{row[0]}}
+</td>
+
+<td>
+{{row[1]}}
+</td>
+
+<td>
+{{row[2]}}
+</td>
+
+<td>
+{{row[3]}}
+</td>
+
+<td>
+{{row[5]}}
+</td>
+
+<td>
+<span style="color:orange;">
+Waiting
+</span>
+</td>
+
+<td>
+
+<a class="btn"
+href="/OApproved?rid={{row[0]}}&fid={{row[1]}}">
+<i class="fa-solid fa-check"></i>
+Approve
+</a>
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+</div>
+
+
+
+<br>
+
+
+
+<div class="table-box">
+
+
+<h2>
+Approved Requests
+</h2>
+
+
+<br>
+
+
+<table>
+
+
+<tr>
+
+<th>
+Request ID
+</th>
+
+<th>
+File Name
+</th>
+
+<th>
+User Name
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+
+
+{% for row in data1 %}
+
+
+<tr>
+
+<td>
+{{row[0]}}
+</td>
+
+
+<td>
+{{row[3]}}
+</td>
+
+
+<td>
+{{row[5]}}
+</td>
+
+
+<td>
+
+<span style="color:green;">
+Approved
+</span>
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+</div>
+
+
+
+{% endblock %}

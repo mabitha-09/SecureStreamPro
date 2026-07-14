@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Owner Dashboard{% endblock %}
+
+{% block heading %}
+Owner Dashboard
+{% endblock %}
+
+{% block sidebar %}
+<li>
+    <a href="/OwnerHome">
+        <i class="fa-solid fa-house"></i> Dashboard
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileUpload">
+        <i class="fa-solid fa-upload"></i> Upload File
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileInfo">
+        <i class="fa-solid fa-folder-open"></i> My Files
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileApproved">
+        <i class="fa-solid fa-check"></i> File Requests
+    </a>
+</li>
+
+<li>
+    <a href="/">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+</li>
+
+{% endblock %}
+
+{% block content %}
+
+<h2>Welcome, {{ session.oname }}</h2>
+
+<p style="margin-top:10px;">
+Manage your encrypted multimedia files securely using the dashboard below.
+</p>
+
+<div class="cards">
+
+    <div class="card">
+        <i class="fa-solid fa-upload"></i>
+        <h3>Upload</h3>
+        <p>Upload multimedia files</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-folder"></i>
+        <h3>Files</h3>
+        <p>View uploaded files</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-key"></i>
+        <h3>Requests</h3>
+        <p>Approve user requests</p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>AES + ECC</h3>
+        <p>Hybrid encryption enabled</p>
+    </div>
+
+</div>
+
+{% endblock %}

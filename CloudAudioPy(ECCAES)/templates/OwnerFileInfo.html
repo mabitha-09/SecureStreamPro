@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+My Files
+{% endblock %}
+
+
+{% block heading %}
+My Uploaded Files
+{% endblock %}
+
+
+{% block sidebar %}
+
+<li>
+    <a href="/OwnerHome">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileUpload">
+        <i class="fa-solid fa-upload"></i>
+        Upload File
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileInfo">
+        <i class="fa-solid fa-folder-open"></i>
+        My Files
+    </a>
+</li>
+
+<li>
+    <a href="/OwnerFileApproved">
+        <i class="fa-solid fa-check"></i>
+        Requests
+    </a>
+</li>
+
+<li>
+    <a href="/">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </a>
+</li>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="table-box">
+
+<h2>
+    Uploaded Multimedia Files
+</h2>
+
+<br>
+
+
+<table>
+
+<tr>
+
+<th>
+ID
+</th>
+
+<th>
+Owner Name
+</th>
+
+<th>
+Description
+</th>
+
+<th>
+File Name
+</th>
+
+<th>
+Encryption Key
+</th>
+
+<th>
+Action
+</th>
+
+</tr>
+
+
+
+{% for row in data %}
+
+<tr>
+
+<td>
+{{row[0]}}
+</td>
+
+
+<td>
+{{row[1]}}
+</td>
+
+
+<td>
+{{row[2]}}
+</td>
+
+
+<td>
+{{row[3]}}
+</td>
+
+
+<td style="word-break:break-all;">
+{{row[4][:25]}}...
+</td>
+
+
+<td>
+
+<a class="btn"
+href="/ODownload?fid={{row[0]}}">
+<i class="fa-solid fa-download"></i>
+Download
+</a>
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+</div>
+
+
+{% endblock %}
