@@ -1,0 +1,36 @@
+.landing {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.auth-back {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid rgba(186, 224, 255, .26);
+  border-radius: 999px;
+  background: rgba(7, 17, 32, .54);
+  color: #e9f4ff;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: transform .2s, background .2s, border-color .2s;
+}
+
+.auth-back:hover {
+  color: #fff;
+  background: rgba(54, 216, 255, .16);
+  border-color: rgba(54, 216, 255, .56);
+  transform: translateX(-3px);
+}
+
+.auth-back i { color: #36d8ff; }
+
+@media (max-width: 575px) {
+  .auth-back { top: 16px; left: 16px; padding: 9px 12px; }
+  .auth-back span { display: none; }
+}
